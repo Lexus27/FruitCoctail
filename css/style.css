@@ -1,0 +1,148 @@
+html {width: 100%; height: 100%;}
+
+body {font-size: 13px; font-family: Arial, sans-serif; height: 100%; width: 100%;}
+
+@font-face {
+  font-family: 'Conv_zorque';
+  src: url('../fonts/zorque.eot');
+  src: local('☺'), url('../fonts/zorque.woff') format('woff'), url('../fonts/zorque.ttf') format('truetype'), url('../fonts/zorque.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+.clear {clear: both;width: 0px;height: 0px;overflow: hidden;font-size: 0px;line-height: 0px;}
+
+.game {height: 100%; margin: 0 auto; position: relative;}
+.game .game-bg {position: absolute; width: 100%; height: auto; z-index: -1;}
+.game .bg {position: absolute; height: 100%; width: auto; z-index: -2;}
+.game .big-balka3 {position: absolute; height: 100%;}
+.game .nav {position: absolute; bottom: 1.6%; width: 100%; left: 0;}
+.game .nav a {float: left; position: relative;}
+.game .nav a .normal {display: block;}
+.game .nav a .hover {display: none;}
+.game .nav a .active {display: none;}
+.game .nav a:hover .normal {display: none;}
+.game .nav a:hover .hover {display: block;}
+.game .nav a:hover .active {display: none;}
+.game .nav a:active .normal {display: none;}
+.game .nav a:active .hover {display: none;}
+.game .nav a:active .active {display: block;}
+.game .nav a img {width: 100%;}
+.game .nav .select-game {width: 13.6%;}
+.game .nav .select-game img {float: right; width: 80%;}
+.game .nav .select-game:hover img {margin: 0px 0px 0 0px}
+.game .nav .help {width: 10.6%; margin-right: 1%;}
+.game .nav .line1 {width: 7%;}
+.game .nav .line3 {width: 7%;}
+.game .nav .line5 {width: 6.75%;}
+.game .nav .line7 {width: 7%;}
+.game .nav .line7 img {width: 94%; }
+.game .nav .line9 {width: 6.75%;}
+.game .nav .line9 img {width: 94%;}
+.game .nav .maxbet {width: 7%; margin-left: 1%;}
+.game .nav .maxbet img {width: 99%;}
+.game .nav .bet {width: 7%; margin-right: 1%;}
+.game .nav .bet img {width: 100%;}
+.game .nav .start-skip {width: 10.6%; margin-right: -1%;}
+.game .nav .start-skip img {float: right; width: 100%;}
+.game .nav .auto-play {width: 10.6%;}
+.game .nav .auto-play img {float: left; width: 100%;}
+
+.game .cubs {position: absolute; bottom: 7%; width: 25%; left: 7%;}
+.game .fruite {position: absolute; bottom: 14%; z-index: 1; width: 16%; left: 13%;}
+
+.game .work-content {position: absolute; top: 13%; left: 9%; width: 81%; height: 54%;}
+.game .work-content .lines {float: left; width: 18.7%; height: 100%; margin-right: 1.9%; text-align: center;}
+.game .work-content .lines.last-child {margin-right: 0%; margin-left: -1.1%;}
+.game .work-content .lines img {height: 36%; display: inline-block; margin-bottom: -10%; margin-left: 0;}
+
+.text-fields {font-family: 'Conv_zorque', sans-serif; color: #006800; position: absolute; width: 100%; height: 100%;}
+.text-fields .total-bet {font-size: 3vh; text-transform: uppercase; margin: 2.2% 0 0 11%; position: absolute; width: 26.7%;}
+.text-fields .line-play {font-size: 3vh; text-transform: uppercase; margin: 2.2% 0 0 40%; position: absolute; width: 18.5%;}
+.text-fields .credits {font-size: 3vh; text-transform: uppercase; margin: 2.2% 0 0 61%; position: absolute; width: 26.5%;}
+.text-fields .bet-per-line {font-size: 1.5vh; text-transform: uppercase; margin: auto; position: absolute; width: 12%; left: -1.5%; right: 0; top: 8.7%; color: #fff4f8;}
+.text-fields .bet-per-line .position {float: right;}
+.text-fields .bonus-game {font-size: 4vh; text-transform: uppercase; margin: 3.5% 0 0 59.6%; position: absolute; bottom: 21.4%; width: 27.5%; color: #fff4f8;}
+.text-fields .right {float: right;}
+
+.work-lines {font-family: 'Conv_zorque', sans-serif; color: #00e100; position: absolute; width: 100%; height: 100%; font-size: 4vh; background: url(../images/btns-bg.png) no-repeat bottom left; background-size: 100% 17%;}
+.work-lines .left {position: absolute; left: 0; top: 0; display: inline-block;}
+.work-lines .right {position: absolute; right: 0; top: 0; display: inline-block;}
+.work-lines img {width: 81.3%; position: absolute; z-index: 1;}
+.work-lines .line1 {position: absolute; width: 100%; height: 100%; display: none;}
+.work-lines-show-1 .line1 {display: block;}
+.work-lines .line1 .left {margin: 28.5% 0 0 2.6%;}
+.work-lines .line1 .right {margin: 28.5% 4.3% 0 0;}
+.work-lines .line1 img {margin: 29.6% 0 0 9.5%; width: 80.2%;}
+.work-lines .line2 {position: absolute; width: 100%; height: 100%; display: none;}
+.work-lines-show-2 .line2 {display: block;}
+.work-lines .line2 .left {margin: 9.5% 0 0 2.4%;}
+.work-lines .line2 .right {margin: 9.5% 3.9% 0 0;}
+.work-lines .line2 img {margin: 11% 0 0 9.4%; width: 80%;}
+.work-lines .line3 {position: absolute; width: 100%; height: 100%; display: none;}
+.work-lines-show-3 .line3 {display: block;}
+.work-lines .line3 .left {margin: 47.9% 0 0 2.4%;}
+.work-lines .line3 .right {margin: 47.9% 3.9% 0 0;}
+.work-lines .line3 img {margin: 48.9% 0 0 9.4%; width: 80.2%;}
+.work-lines .line4 {position: absolute; width: 100%; height: 100%; display: none;}
+.work-lines-show-4 .line4 {display: block;}
+.work-lines .line4 .left {margin: 19.3% 0 0 2.4%;}
+.work-lines .line4 .right {margin: 19.3% 3.9% 0 0;}
+.work-lines .line4 img {margin: 20.4% 0 0 9.4%; width: 80.3%;}
+.work-lines .line5 {position: absolute; width: 100%; height: 100%; display: none;}
+.work-lines-show-5 .line5 {display: block;}
+.work-lines .line5 .left {margin: 38% 0 0 2.4%;}
+.work-lines .line5 .right {margin: 38% 3.9% 0 0;}
+.work-lines .line5 img {margin: 15.3% 0 0 9.4%; width: 80.3%;}
+.work-lines .line6 {position: absolute; width: 100%; height: 100%; display: none;}
+.work-lines-show-6 .line6 {display: block;}
+.work-lines .line6 .left {margin: 14.4% 0 0 2.4%;}
+.work-lines .line6 .right {margin: 14.4% 3.9% 0 0;}
+.work-lines .line6 img {margin: 15.1% 0 0 8.9%;}
+.work-lines .line7 {position: absolute; width: 100%; height: 100%; display: none;}
+.work-lines-show-7 .line7 {display: block;}
+.work-lines .line7 .left {margin: 42.8% 0 0 2.4%;}
+.work-lines .line7 .right {margin: 42.8% 3.9% 0 0;}
+.work-lines .line7 img {margin: 31.3% 0 0 9%;}
+.work-lines .line8 {position: absolute; width: 100%; height: 100%; display: none;}
+.work-lines-show-8 .line8 {display: block;}
+.work-lines .line8 .left {margin: 33.4% 0 0 2.4%;}
+.work-lines .line8 .right {margin: 33.4% 3.9% 0 0;}
+.work-lines .line8 img {margin: 34.2% 0 0 9.4%; width: 80.3%;}
+.work-lines .line9 {position: absolute; width: 100%; height: 100%; display: none;}
+.work-lines-show-9 .line9 {display: block;}
+.work-lines .line9 .left {margin: 23.9% 0 0 2.4%;}
+.work-lines .line9 .right {margin: 23.9% 3.9% 0 0;}
+.work-lines .line9 img {margin: 18.3% 0 0 8.9%;}
+
+#results {display: none; background: white; border: 3px solid gold; height: 120px; width: 250px; left: 20px; top: 15px; position: absolute; font-size: x-large;}
+#results #score {margin: 5px;}
+#results #score img {vertical-align: middle;}
+
+.spinner-bg {position: fixed; width: 100%; height: 100%; background: #fff; top: 0; left: 0; z-index: 100000;}
+.spinner {width: 40px; height: 40px; position: fixed; text-align: center; margin: auto; top: 0; right: 0; bottom: 0; left: 0; z-index: 100001;
+  -webkit-animation: rotate 2.0s infinite linear;
+  animation: rotate 2.0s infinite linear;
+}
+.dot1, .dot2 {width: 60%; height: 60%; display: inline-block; position: absolute; top: 0; background-color: #333; border-radius: 100%;
+  -webkit-animation: bounce 2.0s infinite ease-in-out;
+  animation: bounce 2.0s infinite ease-in-out;
+}
+.dot2 {top: auto; bottom: 0px; -webkit-animation-delay: -1.0s; animation-delay: -1.0s;}
+@-webkit-keyframes rotate { 100% { -webkit-transform: rotate(360deg) }}
+@keyframes rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
+@-webkit-keyframes bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+@keyframes bounce {
+  0%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}

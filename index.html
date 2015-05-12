@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang='ru'>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link href="css/reset.css" type="text/css" rel="stylesheet">
+  <link href="css/style.css" type="text/css" rel="stylesheet">
+</head>
+<body ontouchstart=""> 
+
+  <div class="spinner-bg"></div>
+  <div class="spinner">
+    <div class="dot1"></div>
+    <div class="dot2"></div>
+  </div>
+  
+  <div class="game" id="content">
+    <img src="images/bg.png" class="bg">
+    <img src="images/bg2.png" class="game-bg">
+    <img src="images/cubs.svg" class="cubs">
+    <img src="images/fruite.svg" class="fruite">
+
+    <div class="text-fields">
+      <div class="total-bet">total bet <span class="right">12</span></div>
+      <div class="line-play">line play <span class="right">12</span></div>
+      <div class="credits">credits <span class="right">12</span></div>
+      <div class="bet-per-line"><span class="text">bet per line</span> <span class="position">1</span></div>
+      <div class="bonus-game">bonus game</div>
+    </div>
+
+    <div class="work-lines work-lines-show-4 work-lines-show-5 work-lines-show-6 work-lines-show-7 work-lines-show-8 work-lines-show-9">
+      <div class="line2">
+        <span class="left">2</span>
+        <img src="images/lines/line2.png">
+        <span class="right">2</span>
+      </div>
+      <div class="line6">
+        <span class="left">6</span>
+        <img src="images/lines/line6.png">
+        <span class="right">6</span>
+      </div>
+      <div class="line4">
+        <span class="left">4</span>
+        <img src="images/lines/line4.png">
+        <span class="right">4</span>
+      </div>
+      <div class="line9">
+        <span class="left">9</span>
+        <img src="images/lines/line9.png">
+        <span class="right">9</span>
+      </div>
+      <div class="line1">
+        <span class="left">1</span>
+        <img src="images/lines/line1.png">
+        <span class="right">1</span>
+      </div>
+      <div class="line8">
+        <span class="left">8</span>
+        <img src="images/lines/line8.png">
+        <span class="right">8</span>
+      </div>
+      <div class="line5">
+        <span class="left">5</span>
+        <img src="images/lines/line5.png">
+        <span class="right">5</span>
+      </div>
+      <div class="line7">
+        <span class="left">7</span>
+        <img src="images/lines/line7.png">
+        <span class="right">7</span>
+      </div>
+      <div class="line3">
+        <span class="left">3</span>
+        <img src="images/lines/line3.png">
+        <span class="right">3</span>
+      </div>
+    </div>
+
+    <div class="work-content" id="reels">
+      <div id="results">
+        <div id="score">
+          <span id="multiplier">0</span> x <img src="images/icons/icon8.png">
+        </div>
+        <div id="status"></div>
+      </div>
+      <div class="lines" id="reel1">
+        <img src="images/icons/icon1.png">
+        <img src="images/icons/icon2.png">
+        <img src="images/icons/icon3.png">
+      </div>
+      <div class="lines" id="reel2">
+        <img src="images/icons/icon4.png">
+        <img src="images/icons/icon5.png">
+        <img src="images/icons/icon6.png">
+      </div>
+      <div class="lines" id="reel3">
+        <img src="images/icons/icon7.png">
+        <img src="images/icons/icon8.png">
+        <img src="images/icons/icon9.png">
+      </div>
+      <div class="lines" id="reel4">
+        <img src="images/icons/icon4.png">
+        <img src="images/icons/icon7.png">
+        <img src="images/icons/icon2.png">
+      </div>
+      <div class="lines last-child" id="reel5">
+        <img src="images/icons/icon3.png">
+        <img src="images/icons/icon4.png">
+        <img src="images/icons/icon5.png">
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="nav" id="buttons">
+      <a href="#" class="select-game" id="select_game">
+        <img src="images/btns/select1.svg" class="normal">
+        <img src="images/btns/select2.svg" class="hover">
+        <img src="images/btns/select3.svg" class="active"></a>
+      </a>
+      <a href="#" class="help" id="help">
+        <img src="images/btns/help1.svg" class="normal">
+        <img src="images/btns/help2.svg" class="hover">
+        <img src="images/btns/help3.svg" class="active"></a>
+      </a>
+      <a href="#" class="line1" id="one_line">
+        <img src="images/btns/line1_1.svg" class="normal">
+        <img src="images/btns/line1_2.svg" class="hover">
+        <img src="images/btns/line1_3.svg" class="active"></a>
+      </a>
+      <a href="#" class="line3" id="three_line">
+        <img src="images/btns/line3_1.svg" class="normal">
+        <img src="images/btns/line3_2.svg" class="hover">
+        <img src="images/btns/line3_3.svg" class="active"></a>
+      </a>
+      <a href="#" class="line5" id="five_line">
+        <img src="images/btns/line5_1.svg" class="normal">
+        <img src="images/btns/line5_2.svg" class="hover">
+        <img src="images/btns/line5_3.svg" class="active"></a>
+      </a>
+      <a href="#" class="line7" id="seven_line">
+        <img src="images/btns/line7_1.svg" class="normal">
+        <img src="images/btns/line7_2.svg" class="hover">
+        <img src="images/btns/line7_3.svg" class="active"></a>
+      </a>
+      <a href="#" class="line9" id="nine_line">
+        <img src="images/btns/line9_1.svg" class="normal">
+        <img src="images/btns/line9_2.svg" class="hover">
+        <img src="images/btns/line9_3.svg" class="active"></a>
+      </a>
+      <a href="#" class="maxbet" id="max_bet">
+        <img src="images/btns/max1.svg" class="normal">
+        <img src="images/btns/max2.svg" class="hover">
+        <img src="images/btns/max3.svg" class="active"></a>
+      </a>
+      <a href="#" class="bet" id="bet">
+        <img src="images/btns/bet1.svg" class="normal">
+        <img src="images/btns/bet2.svg" class="hover">
+        <img src="images/btns/bet3.svg" class="active"></a>
+      </a>
+      <a href="#" class="auto-play" id="auto-play">
+        <img src="images/btns/btn1_1.svg" class="normal">
+        <img src="images/btns/btn1_2.svg" class="hover">
+        <img src="images/btns/btn1_3.svg" class="active"></a>
+    
+      <a href="#" class="start-skip" id="play">
+        <img src="images/btns/_btn2_1.svg" class="normal">
+        <img src="images/btns/_btn2_2.svg" class="hover">
+        <img src="images/btns/_btn2_3.svg" class="active"></a>
+      </a>
+    </div>
+
+  </div>
+
+  <script src="js/jquery-1.7.1.min.js"></script>
+  <script src="js/jquery.slides.min.js"></script>
+  <script src="js/js.js"></script>
+
+</body>
+</html>
