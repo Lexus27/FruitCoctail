@@ -23,10 +23,10 @@
     <img src="images/fruite.svg" class="fruite">
 
     <div class="text-fields">
-      <div class="total-bet">total bet <span class="right">12</span></div>
-      <div class="line-play">line play <span class="right">12</span></div>
-      <div class="credits">credits <span class="right">12</span></div>
-      <div class="bet-per-line"><span class="text">bet per line</span> <span class="position">1</span></div>
+      <div class="total-bet">total bet <span id="total-bet-value" class="right">1</span></div>
+      <div class="line-play">line play <span id="line-play-value" class="right">1</span></div>
+      <div class="credits">credits <span id="credits-value" class="right">100</span></div>
+      <div class="bet-per-line"><span class="text">bet per line</span>1<span id="bet-per-line-value" class="position">1</span></div>
       <div class="bonus-game">bonus game</div>
     </div>
 
@@ -88,38 +88,12 @@
     </div>
 
     <div class="work-content" id="reels">
-      <div id="results">
-        <div id="score">
-          <span id="multiplier">0</span> x <img src="images/icons/icon8.png">
-        </div>
-        <div id="status"></div>
-      </div>
-      <div class="lines" id="reel1">
-        <img src="images/icons/icon1.png">
-        <img src="images/icons/icon2.png">
-        <img src="images/icons/icon3.png">
-      </div>
-      <div class="lines" id="reel2">
-        <img src="images/icons/icon4.png">
-        <img src="images/icons/icon5.png">
-        <img src="images/icons/icon6.png">
-      </div>
-      <div class="lines" id="reel3">
-        <img src="images/icons/icon7.png">
-        <img src="images/icons/icon8.png">
-        <img src="images/icons/icon9.png">
-      </div>
-      <div class="lines" id="reel4">
-        <img src="images/icons/icon4.png">
-        <img src="images/icons/icon7.png">
-        <img src="images/icons/icon2.png">
-      </div>
-      <div class="lines last-child" id="reel5">
-        <img src="images/icons/icon3.png">
-        <img src="images/icons/icon4.png">
-        <img src="images/icons/icon5.png">
-      </div>
-      <div class="clear"></div>
+		<canvas class="lines" id="reel1"></canvas>
+		<canvas class="lines" id="reel2"></canvas>
+		<canvas class="lines" id="reel3"></canvas>
+		<canvas class="lines" id="reel4"></canvas>
+		<canvas class="lines last-child" id="reel5"></canvas>
+      	<div class="clear"></div>
     </div>
 
     <div class="nav" id="buttons">
@@ -184,7 +158,248 @@
 
   <script src="js/jquery-1.7.1.min.js"></script>
   <script src="js/jquery.slides.min.js"></script>
-  <script src="js/js.js"></script>
+  
+  <script src="js/slot/Slot.js"></script>
+  <script src="js/slot/Reel.js"></script>
+  <script src="js/slot/Reel/Animation.js"></script>
+  <script src="js/slot/Reel/Order.js"></script>
+  <script src="js/slot/Entity.js"></script>
+  
+  <script>
 
+ 	// Variables
+ 	var total_bet = 1;
+ 	var bet_per_line = 1;
+ 	var active_line = 1;
+
+  	(function(){
+
+
+  		var resizeCallback = function(){
+  			var k = 1.33;
+  			var height = $(window).height();
+  			$(".game").css({"width": (height * k) + "px"});
+  			$(".bg").css({"width": (height * k) + "px"});
+  		};
+  		resizeCallback();
+  		$(window).resize(function(){
+  			resizeCallback();
+  		});
+
+  		$(window).load(function(){
+
+  			$(".spinner-bg").fadeOut();
+  			$(".spinner").fadeOut();
+
+  			(function(){
+  				var slot = new Mirage.Slot;
+
+  				/**
+  				 * Пропорции !Реальных размеров изображений сущнойстей!
+  				 */
+  				slot.setEntityProportion(600,600);
+
+  				slot.setSpeedScatter(0);
+  				slot.setDefaultSpeed(600);
+
+  				slot.setStartRandomOrder(false);
+  				slot.setStartIntervals(0,0);
+
+
+  				slot.setStopRandomOrder(false);
+  				slot.setStopIntervals(70,70);
+
+
+  				slot.reelInit = function(reel){
+
+  					reel.animation.sc = {
+  						startingTick:       null,
+  						startingFirstTick:  function(){
+  							this.back = true;
+  							this.speed = this._speed / 2;
+  							this.changeSpeed(10,100,function(){
+  								this.speed = this._speed;
+  								this.back = false;
+  								this.state = this.STATE_MIDDLE;
+  							});
+  						},
+
+  						startingDistance :  null,
+
+  						middleTick:         null,
+  						middleFirstTick:    null,
+  						middleDistance :    null,
+
+  						stoppingTick:       null,
+  						stoppingFirstTick:  null,
+						stoppingDistance :  function(){
+
+							if(this.flag('stopRollback') && this.counter('stopOrderComplete') < 1){
+						    	console.log(this.reel.getIndex(),this.reel.order.getRange(0,3),this.counter('stopOrderComplete'));
+						        this.reel.forceStop();
+						        return false;
+							}
+
+						    if(this.flag('stopOrderComplete')){
+						    	if(this.back){
+						        	this.counterDecrement('stopOrderComplete');
+						        } else {
+						        	this.counterIncrement('stopOrderComplete');
+						        }
+							}
+
+						    if(!this.flag('stopOrderComplete') && !this.reel.shiftStoppingOrder()){
+
+						    	this.flag('stopOrderComplete',true);
+						        this.changeSpeed(1,400,function(){
+						        	this.speed = this._speed * 0.5;
+						        	this.back = true;
+						         	this.flag('stopRollback',true);
+						        });
+							}
+						}
+  						
+  					};
+
+  				};
+
+
+  				var entities = [];
+  				for(var i=0;i<9;i++){
+  					entities.push((new Mirage.Slot.Entity()).setIndex(i).setSrc('images/icons/icon'+(i+1)+'.png'));
+  				}
+  				slot.setEntities(entities);
+  				slot.setVisualSegmentCount(3);
+
+  				slot.addReel(
+  						(new Mirage.Slot.Reel())).setElement(document.getElementById('reel1')
+  				);
+
+  				slot.addReel(
+  						(new Mirage.Slot.Reel())).setElement(document.getElementById('reel2')
+  				);
+
+  				slot.addReel(
+  						(new Mirage.Slot.Reel())).setElement(document.getElementById('reel3')
+  				);
+
+  				slot.addReel(
+  						(new Mirage.Slot.Reel())).setElement(document.getElementById('reel4')
+  				);
+
+  				slot.addReel(
+  						(new Mirage.Slot.Reel())).setElement(document.getElementById('reel5')
+  				);
+
+
+  				/**
+  				 * Иницилизация слот автомата и его сущностей
+  				 */
+  				slot.initialize();
+
+  				var playBtn = document.getElementById('play');
+  				playBtn.addEventListener('click',function(){
+  					slot.run(function(){
+
+
+  						$.ajax({
+  							dataType: 'json',
+  							type: 'POST',
+  							url: 'http://ysvyato.bget.ru/game/crazy_monkey/barrelThrow',
+  							data: {
+  								bet: bet_per_line,
+  								bet_lines: active_line
+  							},
+  							success: function (data, status) {
+  								slot.stop(function(barrelIndex){
+  									return data.object.matrix[barrelIndex];
+  								},null,window);
+								console.log(data.object);
+								setCredits(data.object.balance);
+  							},
+  							async: true
+  						});
+
+
+  					});
+  				},false);
+				
+				var betBtn = document.getElementById('bet');
+				betBtn.addEventListener('click',function(){
+					bet_per_line += 1;
+					refreshData();
+				},false);
+		
+				var line1Btn = document.getElementById('one_line');
+				line1Btn.addEventListener('click',function(){
+					var lines = document.getElementById("work-lines");
+					lines.className = "";
+					lines.className = "work-lines";
+					lines.className += " work-lines-show-1";
+					active_line = 1;
+					refreshData();
+				},false);
+		
+				var line3Btn = document.getElementById('three_line');
+				line3Btn.addEventListener('click',function(){
+					var lines = document.getElementById("work-lines");
+					lines.className = "";
+					lines.className = "work-lines";
+					lines.className += " work-lines-show-1 work-lines-show-2 work-lines-show-3";
+					active_line = 3;
+					refreshData();
+				},false);
+		
+				var line5Btn = document.getElementById('five_line');
+				line5Btn.addEventListener('click',function(){
+					var lines = document.getElementById("work-lines");
+					lines.className = "";
+					lines.className = "work-lines";
+					lines.className += " work-lines-show-1 work-lines-show-2 work-lines-show-3 work-lines-show-4 work-lines-show-5";
+					active_line = 5;
+					refreshData();
+				},false);
+		
+				var line7Btn = document.getElementById('seven_line');
+				line7Btn.addEventListener('click',function(){
+					var lines = document.getElementById("work-lines");
+					lines.className = "";
+					lines.className = "work-lines";
+					lines.className += " work-lines-show-1 work-lines-show-2 work-lines-show-3 work-lines-show-4 work-lines-show-5 work-lines-show-6 work-lines-show-7";
+					active_line = 7;
+					refreshData();
+				},false);
+		
+				var line9Btn = document.getElementById('nine_line');
+				line9Btn.addEventListener('click',function(){
+					var lines = document.getElementById("work-lines");
+					lines.className = "";
+					lines.className = "work-lines";
+					lines.className += " work-lines-show-1 work-lines-show-2 work-lines-show-3 work-lines-show-4 work-lines-show-5 work-lines-show-6 work-lines-show-7 					work-lines-show-8 work-lines-show-9";
+					active_line = 9;
+					refreshData();
+				},false);
+				
+  			})();
+
+  		});
+
+  	})();
+
+	function setCredits (credits) {
+		document.getElementById('credits-value').innerHTML = credits;
+		//bet_per_line = 1;
+		//active_line = 1;
+		refreshData();
+	}
+
+	function refreshData () {
+		document.getElementById('bet-per-line-value').innerHTML = bet_per_line;
+		document.getElementById('line-play-value').innerHTML = active_line;
+		document.getElementById('total-bet-value').innerHTML = bet_per_line * active_line;
+	}
+
+  </script>
+	
 </body>
 </html>
