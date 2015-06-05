@@ -17,142 +17,294 @@
   
   <div class="game" id="content">
     <img src="images/bg.png" class="bg">
-    <img src="images/bg2.png" class="game-bg">
-    <img src="images/bg3.png" class="game-bg3">
-    <img src="images/cubs.svg" class="cubs">
-    <img src="images/fruite.svg" class="fruite">
 
-    <div class="text-fields">
-      <div class="total-bet">total bet <span id="total-bet-value" class="right">1</span></div>
-      <div class="line-play">line play <span id="line-play-value" class="right">1</span></div>
-      <div class="credits">credits <span id="credits-value" class="right">100</span></div>
-      <div class="bet-per-line"><span class="text">bet per line</span>1<span id="bet-per-line-value" class="position">1</span></div>
-      <div class="bonus-game">bonus game</div>
+    <div class="main-game-block">
+      <img src="images/cubs.svg" class="cubs">
+      <img src="images/fruite.svg" class="fruite">
+      <img src="images/bg2.png" class="game-bg">
+      <img src="images/bg3.png" class="game-bg3">
+
+      <div class="text-fields">
+        <div class="total-bet">total bet <span id="total-bet-value" class="right">1</span></div>
+        <div class="line-play">line play <span id="line-play-value" class="right">1</span></div>
+        <div class="credits">credits <span id="credits-value" class="right">100</span></div>
+        <div class="bet-per-line"><span class="text">bet per line</span>1<span id="bet-per-line-value" class="position">1</span></div>
+        <div class="bonus-game">bonus game</div>
+      </div>
+
+      <div class="work-lines">
+        <div class="line2">
+          <span class="left">2</span>
+          <img src="images/lines/2_1.png" class="normal">
+          <img src="images/lines/2.png" class="glow">
+          <span class="right">2</span>
+        </div>
+        <div class="line6">
+          <span class="left">6</span>
+          <img src="images/lines/6_1.png" class="normal">
+          <img src="images/lines/6.png" class="glow">
+          <span class="right">6</span>
+        </div>
+        <div class="line4">
+          <span class="left">4</span>
+          <img src="images/lines/4_1.png" class="normal">
+          <img src="images/lines/4.png" class="glow">
+          <span class="right">4</span>
+        </div>
+        <div class="line9">
+          <span class="left">9</span>
+          <img src="images/lines/9_1.png" class="normal">
+          <img src="images/lines/9.png" class="glow">
+          <span class="right">9</span>
+        </div>
+        <div class="line1">
+          <span class="left">1</span>
+          <img src="images/lines/1_1.png" class="normal">
+          <img src="images/lines/1.png" class="glow">
+          <span class="right">1</span>
+        </div>
+        <div class="line8">
+          <span class="left">8</span>
+          <img src="images/lines/8_1.png" class="normal">
+          <img src="images/lines/8.png" class="glow">
+          <span class="right">8</span>
+        </div>
+        <div class="line5">
+          <span class="left">5</span>
+          <img src="images/lines/5_1.png" class="normal">
+          <img src="images/lines/5.png" class="glow">
+          <span class="right">5</span>
+        </div>
+        <div class="line7">
+          <span class="left">7</span>
+          <img src="images/lines/7_1.png" class="normal">
+          <img src="images/lines/7.png" class="glow">
+          <span class="right">7</span>
+        </div>
+        <div class="line3">
+          <span class="left">3</span>
+          <img src="images/lines/3_1.png" class="normal">
+          <img src="images/lines/3.png" class="glow">
+          <span class="right">3</span>
+        </div>
+      </div>
+
+      <div class="work-content" id="reels">
+  		<canvas class="lines" id="reel1"></canvas>
+  		<canvas class="lines" id="reel2"></canvas>
+  		<canvas class="lines" id="reel3"></canvas>
+  		<canvas class="lines" id="reel4"></canvas>
+  		<canvas class="lines last-child" id="reel5"></canvas>
+        	<div class="clear"></div>
+      </div>
+
+      <div class="nav" id="buttons">
+        <a href="#" class="select-game" id="select_game">
+          <img src="images/btns/select1.svg" class="normal">
+          <img src="images/btns/select2.svg" class="hover">
+          <img src="images/btns/select3.svg" class="active"></a>
+        </a>
+        <a href="#" class="help" id="help">
+          <img src="images/btns/help1.svg" class="normal">
+          <img src="images/btns/help2.svg" class="hover">
+          <img src="images/btns/help3.svg" class="active"></a>
+        </a>
+        <a href="#" class="line1" id="one_line">
+          <img src="images/btns/line1_1.svg" class="normal">
+          <img src="images/btns/line1_2.svg" class="hover">
+          <img src="images/btns/line1_3.svg" class="active"></a>
+        </a>
+        <a href="#" class="line3" id="three_line">
+          <img src="images/btns/line3_1.svg" class="normal">
+          <img src="images/btns/line3_2.svg" class="hover">
+          <img src="images/btns/line3_3.svg" class="active"></a>
+        </a>
+        <a href="#" class="line5" id="five_line">
+          <img src="images/btns/line5_1.svg" class="normal">
+          <img src="images/btns/line5_2.svg" class="hover">
+          <img src="images/btns/line5_3.svg" class="active"></a>
+        </a>
+        <a href="#" class="line7" id="seven_line">
+          <img src="images/btns/line7_1.svg" class="normal">
+          <img src="images/btns/line7_2.svg" class="hover">
+          <img src="images/btns/line7_3.svg" class="active"></a>
+        </a>
+        <a href="#" class="line9" id="nine_line">
+          <img src="images/btns/line9_1.svg" class="normal">
+          <img src="images/btns/line9_2.svg" class="hover">
+          <img src="images/btns/line9_3.svg" class="active"></a>
+        </a>
+        <a href="#" class="maxbet" id="max_bet">
+          <img src="images/btns/max1.svg" class="normal">
+          <img src="images/btns/max2.svg" class="hover">
+          <img src="images/btns/max3.svg" class="active"></a>
+        </a>
+        <a href="#" class="bet" id="bet">
+          <img src="images/btns/bet1.svg" class="normal">
+          <img src="images/btns/bet2.svg" class="hover">
+          <img src="images/btns/bet3.svg" class="active"></a>
+        </a>
+        <a href="#" class="auto-play" id="auto-play">
+          <img src="images/btns/btn1_1.svg" class="normal">
+          <img src="images/btns/btn1_2.svg" class="hover">
+          <img src="images/btns/btn1_3.svg" class="active"></a>
+      
+        <a href="#" class="start-skip" id="play">
+          <img src="images/btns/_btn2_1.svg" class="normal">
+          <img src="images/btns/_btn2_2.svg" class="hover">
+          <img src="images/btns/_btn2_3.svg" class="active"></a>
+        </a>
+      </div>
+
     </div>
 
-    <div class="work-lines">
-      <div class="line2">
-        <span class="left">2</span>
-        <img src="images/lines/2_1.png" class="normal">
-        <img src="images/lines/2.png" class="glow">
-        <span class="right">2</span>
+    <div class="risk-game-block">
+      <img src="/images/risk/main-bg.png" class="main-bg">
+      <div class="bottom-bg">
+        <a href="" class="exit1">exit</a>
+        <a href="" class="exit2">exit</a>
+        <div class="images-bottom">
+          <img src="/images/icons/icon8.png">
+          <img src="/images/icons/icon7.png">
+          <img src="/images/icons/icon1.png">
+          <img src="/images/icons/icon3.png">
+          <img src="/images/icons/icon6.png">
+          <img src="/images/icons/icon2.png">
+          <img src="/images/icons/icon5.png">
+        </div>
+        <div class="bottom-numbers">1 2 3 4 5 6 7 8 9 0</div>
       </div>
-      <div class="line6">
-        <span class="left">6</span>
-        <img src="images/lines/6_1.png" class="normal">
-        <img src="images/lines/6.png" class="glow">
-        <span class="right">6</span>
-      </div>
-      <div class="line4">
-        <span class="left">4</span>
-        <img src="images/lines/4_1.png" class="normal">
-        <img src="images/lines/4.png" class="glow">
-        <span class="right">4</span>
-      </div>
-      <div class="line9">
-        <span class="left">9</span>
-        <img src="images/lines/9_1.png" class="normal">
-        <img src="images/lines/9.png" class="glow">
-        <span class="right">9</span>
-      </div>
-      <div class="line1">
-        <span class="left">1</span>
-        <img src="images/lines/1_1.png" class="normal">
-        <img src="images/lines/1.png" class="glow">
-        <span class="right">1</span>
-      </div>
-      <div class="line8">
-        <span class="left">8</span>
-        <img src="images/lines/8_1.png" class="normal">
-        <img src="images/lines/8.png" class="glow">
-        <span class="right">8</span>
-      </div>
-      <div class="line5">
-        <span class="left">5</span>
-        <img src="images/lines/5_1.png" class="normal">
-        <img src="images/lines/5.png" class="glow">
-        <span class="right">5</span>
-      </div>
-      <div class="line7">
-        <span class="left">7</span>
-        <img src="images/lines/7_1.png" class="normal">
-        <img src="images/lines/7.png" class="glow">
-        <span class="right">7</span>
-      </div>
-      <div class="line3">
-        <span class="left">3</span>
-        <img src="images/lines/3_1.png" class="normal">
-        <img src="images/lines/3.png" class="glow">
-        <span class="right">3</span>
+      <div class="main-block">
+        <div class="top">
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+          <div class="item active">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+        </div>
+        <div class="right">
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+        </div>
+        <div class="bottom">
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+        </div>
+        <div class="left">
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+          <div class="item">
+            <img src="/images/risk/item.png" class="s-item">
+            <img src="/images/risk/item-active.png" class="s-item-active">
+          </div>
+        </div>
+        <div class="main-top">
+          <div class="text1">total bet</div>
+          <div class="text2">win</div>
+          <div class="text3">credits</div>
+        </div>
+        <div class="main-center"></div>
+        <div class="main-bottom">
+          <div class="item"><img src="/images/icons/icon1.png"><span>x100</span></div>
+          <div class="item"><img src="/images/icons/icon2.png"><span>x70</span></div>
+          <div class="item"><img src="/images/icons/icon3.png"><span>x70</span></div>
+          <div class="item"><img src="/images/icons/icon4.png"><span>x70</span></div>
+          <div class="item"><img src="/images/icons/icon5.png"><span>x70</span></div>
+          <div class="item"><img src="/images/icons/icon6.png"><span>x70</span></div>
+          <div class="item"><img src="/images/icons/icon7.png"><span>x70</span></div>
+        </div>
       </div>
     </div>
 
-    <div class="work-content" id="reels">
-		<canvas class="lines" id="reel1"></canvas>
-		<canvas class="lines" id="reel2"></canvas>
-		<canvas class="lines" id="reel3"></canvas>
-		<canvas class="lines" id="reel4"></canvas>
-		<canvas class="lines last-child" id="reel5"></canvas>
-      	<div class="clear"></div>
-    </div>
-
-    <div class="nav" id="buttons">
-      <a href="#" class="select-game" id="select_game">
-        <img src="images/btns/select1.svg" class="normal">
-        <img src="images/btns/select2.svg" class="hover">
-        <img src="images/btns/select3.svg" class="active"></a>
-      </a>
-      <a href="#" class="help" id="help">
-        <img src="images/btns/help1.svg" class="normal">
-        <img src="images/btns/help2.svg" class="hover">
-        <img src="images/btns/help3.svg" class="active"></a>
-      </a>
-      <a href="#" class="line1" id="one_line">
-        <img src="images/btns/line1_1.svg" class="normal">
-        <img src="images/btns/line1_2.svg" class="hover">
-        <img src="images/btns/line1_3.svg" class="active"></a>
-      </a>
-      <a href="#" class="line3" id="three_line">
-        <img src="images/btns/line3_1.svg" class="normal">
-        <img src="images/btns/line3_2.svg" class="hover">
-        <img src="images/btns/line3_3.svg" class="active"></a>
-      </a>
-      <a href="#" class="line5" id="five_line">
-        <img src="images/btns/line5_1.svg" class="normal">
-        <img src="images/btns/line5_2.svg" class="hover">
-        <img src="images/btns/line5_3.svg" class="active"></a>
-      </a>
-      <a href="#" class="line7" id="seven_line">
-        <img src="images/btns/line7_1.svg" class="normal">
-        <img src="images/btns/line7_2.svg" class="hover">
-        <img src="images/btns/line7_3.svg" class="active"></a>
-      </a>
-      <a href="#" class="line9" id="nine_line">
-        <img src="images/btns/line9_1.svg" class="normal">
-        <img src="images/btns/line9_2.svg" class="hover">
-        <img src="images/btns/line9_3.svg" class="active"></a>
-      </a>
-      <a href="#" class="maxbet" id="max_bet">
-        <img src="images/btns/max1.svg" class="normal">
-        <img src="images/btns/max2.svg" class="hover">
-        <img src="images/btns/max3.svg" class="active"></a>
-      </a>
-      <a href="#" class="bet" id="bet">
-        <img src="images/btns/bet1.svg" class="normal">
-        <img src="images/btns/bet2.svg" class="hover">
-        <img src="images/btns/bet3.svg" class="active"></a>
-      </a>
-      <a href="#" class="auto-play" id="auto-play">
-        <img src="images/btns/btn1_1.svg" class="normal">
-        <img src="images/btns/btn1_2.svg" class="hover">
-        <img src="images/btns/btn1_3.svg" class="active"></a>
-    
-      <a href="#" class="start-skip" id="play">
-        <img src="images/btns/_btn2_1.svg" class="normal">
-        <img src="images/btns/_btn2_2.svg" class="hover">
-        <img src="images/btns/_btn2_3.svg" class="active"></a>
-      </a>
-    </div>
 
   </div>
 
